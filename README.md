@@ -11,8 +11,12 @@
 
 ## Deployment
 
-See [DEPLOY-RENDER.md](DEPLOY-RENDER.md) for deploying this Laravel app to
-Render Free with a Neon PostgreSQL database.
+Panduan hosting:
+
+- [InfinityFree Free](DEPLOY-INFINITYFREE.md) — tanpa kartu, memakai MySQL
+  hosting dan upload FTP manual.
+- [Render + Neon](DEPLOY-RENDER.md) — deploy Docker dari GitHub; Render dapat
+  meminta verifikasi pembayaran untuk akun tertentu.
 
 ## About Laravel
 

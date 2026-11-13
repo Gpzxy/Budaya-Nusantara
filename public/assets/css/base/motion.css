@@ -1,0 +1,29 @@
+/* ============================================================
+   MOTION UMUM
+   Efek reveal teks (data-8b-motion="steam"), garis (rule), parallax foto (depth).
+   ============================================================ */
+@layer scenes {
+[data-8b-live] { --ease-power3-inout: linear(0, 0, 0.0001, 0.0003, 0.0008, 0.0019, 0.004, 0.0075, 0.0128, 0.0205, 0.0313, 0.0457, 0.0648, 0.0892, 0.1201, 0.1582, 0.2048, 0.261, 0.3281, 0.4073, 0.5, 0.5927, 0.672, 0.739, 0.7952, 0.8418, 0.88, 0.9107, 0.9352, 0.9543, 0.9688, 0.9795, 0.9872, 0.9925, 0.996, 0.998, 0.9992, 0.9998, 1, 1, 1); }
+[data-8b-live] [data-8b-motion~="steam"]:not([data-8b-items=":scope > li"], [data-8b-items=":scope > details"]) { animation-duration: 1.1s; animation-delay: 0s; animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="steam"]:not([data-8b-items=":scope > li"], [data-8b-items=":scope > details"]).is-in { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > li"] > li { animation-duration: 1.1s; animation-delay: calc(0s + 0.09s * var(--i)); animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > li"].is-in > li { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > details"] > details { animation-duration: 1.1s; animation-delay: calc(0s + 0.09s * var(--i)); animation-fill-mode: both; animation-play-state: paused; transform: none; }
+[data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > details"].is-in > details { animation-play-state: running; }
+[data-8b-live] [data-8b-motion~="depth"] { view-timeline: --motion-depth block; view-timeline-inset: 0; }
+[data-8b-live] [data-8b-motion~="depth"] img { animation-name: motion-depth-img-translate; animation-timeline: --motion-depth; animation-range: cover 0% cover 50%; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+[data-8b-live] [data-8b-motion~="rule"] { animation-name: motion-rule-scale; animation-duration: 1.3s; animation-delay: 0s; animation-timing-function: var(--ease-power3-inout); animation-fill-mode: both; animation-play-state: paused; transform: none; transform-origin: 0% 50%; }
+[data-8b-live] [data-8b-motion~="rule"].is-in { animation-play-state: running; }
+@keyframes motion-steam-single-translate { 0% { translate: 0px 26px; } 100% { translate: 0px 0px; } }
+@keyframes motion-steam-single-opacity { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes motion-steam-single-filter-d { 0% { filter: blur(6px); } 99.998% { filter: blur(0px); } 100% { filter: none; } }
+@keyframes motion-steam-single-filter-m { 0% { filter: blur(0px); animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); } 99.998% { filter: blur(0px); } 100% { filter: none; } }
+@keyframes motion-depth-img-translate { 0% { translate: 0px -10%; } 100% { translate: 0px 0px; } }
+@keyframes motion-rule-scale { 0% { scale: 0 1; } 100% { scale: 1; } }
+@media (min-width: 1024px) {
+  [data-8b-live] [data-8b-motion~="steam"]:not([data-8b-items=":scope > li"], [data-8b-items=":scope > details"]), [data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > li"] > li, [data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > details"] > details { animation-name: motion-steam-single-translate, motion-steam-single-opacity, motion-steam-single-filter-d; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1); }
+}
+@media (max-width: 1023px) {
+  [data-8b-live] [data-8b-motion~="steam"]:not([data-8b-items=":scope > li"], [data-8b-items=":scope > details"]), [data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > li"] > li, [data-8b-live] [data-8b-motion~="steam"][data-8b-items=":scope > details"] > details { animation-name: motion-steam-single-translate, motion-steam-single-opacity, motion-steam-single-filter-m; animation-timing-function: cubic-bezier(0.3333, 1, 0.6667, 1), cubic-bezier(0.3333, 1, 0.6667, 1), linear; }
+}
+}

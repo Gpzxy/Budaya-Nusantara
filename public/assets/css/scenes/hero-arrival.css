@@ -1,0 +1,42 @@
+/* ============================================================
+   ANIMASI SCROLL: HERO
+   Dimuat hanya kalau browser mendukung. Kalau error, JS mematikan file ini lewat atribut media.
+   ============================================================ */
+@layer scenes {
+[data-8b-live] #hero { timeline-scope: --arrival-t2; view-timeline: --arrival-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #hero .m-text-3 > span:nth-of-type(-n+3), [data-8b-live] #hero .op-float--1, [data-8b-live] #hero .op-float--2, [data-8b-live] #hero .op-float--3, [data-8b-live] #hero .op-hold, [data-8b-live] #hero .op-veil, [data-8b-live] #hero .op-lake, [data-8b-live] #hero .op-room-dark, [data-8b-live] #hero .op-room { animation-timing-function: linear; animation-fill-mode: both; }
+[data-8b-live] #hero .m-text-3 > span:nth-of-type(1) { view-timeline: --arrival-t2 block; view-timeline-inset: 0; animation-name: arrival-span-op-line-translate; animation-timeline: --arrival-t2; animation-range: cover 2vh cover 41.1892vh; transform: none; }
+[data-8b-live] #hero .op-float--1 { view-timeline: --arrival-t3 block; view-timeline-inset: 0; animation-timeline: --arrival-t3; animation-range: cover 0% cover calc(50% - 5vh); transform: none; }
+[data-8b-live] #hero .op-float--2 { view-timeline: --arrival-t4 block; view-timeline-inset: 0; animation-timeline: --arrival-t4; animation-range: cover 0% cover calc(50% - 5vh); transform: none; }
+[data-8b-live] #hero .op-float--3 { view-timeline: --arrival-t5 block; view-timeline-inset: 0; animation-timeline: --arrival-t5; animation-range: cover 0% cover calc(50% - 5vh); transform: none; }
+[data-8b-live] #hero .op-hold { animation-name: arrival-div-op-hold-translate; animation-timeline: --arrival-t1; animation-range: cover 100vh cover calc(100vh + var(--arrival-first)); transform: none; }
+[data-8b-live] #hero .op-veil { animation-name: arrival-div-op-veil-translate; animation-timeline: --arrival-t1; animation-range: cover 100vh cover calc(100vh + var(--arrival-first)); transform: none; }
+[data-8b-live] #hero .op-lake { animation-name: arrival-img-op-lake-scale, arrival-img-op-lake-opacity; animation-timeline: --arrival-t1; animation-range: cover 100vh cover calc(100vh + var(--arrival-first) * .5), cover calc(100vh + var(--arrival-first) * .47) cover calc(100vh + var(--arrival-first) * .52); transform: none; }
+[data-8b-live] #hero .op-room-dark { animation-name: arrival-div-op-room-dark-opacity; animation-timeline: --arrival-t1; animation-range: cover calc(100vh + var(--arrival-first) * .5) cover calc(45% + 10vh + var(--arrival-first) * .275); }
+[data-8b-live] #hero .op-room { animation-name: arrival-img-op-room-scale; animation-timeline: --arrival-t1; animation-range: cover calc(100vh + var(--arrival-first) * .5) cover calc(100% - 100vh); transform: none; }
+[data-8b-live] #hero .m-text-3 > span:nth-of-type(2) { animation-name: arrival-span-op-line-translate; animation-timeline: --arrival-t2; animation-range: cover 11.4054vh cover 50.5946vh; transform: none; }
+[data-8b-live] #hero .m-text-3 > span:nth-of-type(3) { animation-name: arrival-span-op-line-translate; animation-timeline: --arrival-t2; animation-range: cover 20.8108vh cover 60vh; transform: none; }
+@keyframes arrival-div-op-hold-translate { 0% { translate: 0px 0px; } 0.002% { translate: 0px 0.02%; } 100% { translate: 0px 100%; } }
+@keyframes arrival-div-op-veil-translate { 0% { translate: 0px 0px; } 0.002% { translate: 0px -0.01%; } 50% { translate: 0px -50%; } 100% { translate: 0px -113.333%; } }
+@keyframes arrival-img-op-lake-scale { 0% { scale: 1; } 100% { scale: 1.18; } }
+@keyframes arrival-img-op-lake-opacity { 0% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes arrival-div-op-room-dark-opacity { 0% { opacity: 0.92; } 100% { opacity: 0; } }
+@keyframes arrival-img-op-room-scale { 0% { scale: 1.2; } 100% { scale: 1; } }
+@keyframes arrival-span-op-line-translate { 0% { translate: 0px 0px; animation-timing-function: cubic-bezier(0.3333, 0.6667, 0.6667, 1); } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-d { 0% { translate: 0px 160px; } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-m { 0% { translate: 0px 72px; } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-2-d { 0% { translate: 0px 300px; } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-2-m { 0% { translate: 0px 135px; } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-3-d { 0% { translate: 0px 220px; } 100% { translate: 0px 0px; } }
+@keyframes arrival-figure-m-photo-translate-3-m { 0% { translate: 0px 99px; } 100% { translate: 0px 0px; } }
+@media (min-width: 900px) {
+  [data-8b-live] #hero .op-float--1 { animation-name: arrival-figure-m-photo-translate-d; }
+  [data-8b-live] #hero .op-float--2 { animation-name: arrival-figure-m-photo-translate-2-d; }
+  [data-8b-live] #hero .op-float--3 { animation-name: arrival-figure-m-photo-translate-3-d; }
+}
+@media (max-width: 899px) {
+  [data-8b-live] #hero .op-float--1 { animation-name: arrival-figure-m-photo-translate-m; }
+  [data-8b-live] #hero .op-float--2 { animation-name: arrival-figure-m-photo-translate-2-m; }
+  [data-8b-live] #hero .op-float--3 { animation-name: arrival-figure-m-photo-translate-3-m; }
+}
+}

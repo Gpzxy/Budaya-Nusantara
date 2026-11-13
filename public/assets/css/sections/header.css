@@ -1,0 +1,54 @@
+/* ============================================================
+   SECTION: NAVBAR
+   Navbar tetap di atas + menu overlay mobile. Markup: includes/sections/header.php
+   ============================================================ */
+@layer sections {
+  #header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 18px var(--space-1);
+    transition: transform .55s cubic-bezier(.2, .7, .1, 1), background-color .5s ease;
+  }
+  #header[data-solid] { background: color-mix(in oklab, var(--color-1) 88%, transparent); }
+  #header[data-hidden] { transform: translateY(-110%); }
+  #header .hd-logo { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; margin-right: auto; }
+  #header .hd-mark { display: grid; gap: 4px; width: 22px; }
+  #header .hd-mark i { display: block; height: 1px; background: currentColor; }
+  #header .hd-mark i:nth-child(2) { width: 70%; margin-left: 30%; }
+  #header .hd-mark i:nth-child(3) { width: 45%; }
+  #header .hd-word { font-size: 15px; letter-spacing: .42em; text-transform: uppercase; font-weight: 500; line-height: 1; }
+  #header .hd-nav ul { display: flex; gap: clamp(18px, 2.4vw, 36px); }
+  #header .hd-menu { display: none; }
+  @media (max-width: 1023px) {
+    #header .hd-nav { display: none; }
+    #header .hd-menu { display: inline-grid; }
+  }
+  @media (max-width: 480px) {
+    #header { gap: 10px; padding-block: 14px; }
+    #header .hd-book { padding-inline: 16px; letter-spacing: .16em; }
+    #header .hd-word { letter-spacing: .34em; }
+  }
+  @media (prefers-reduced-motion: reduce) { #header { transition: none; } }
+  #header #menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 32px;
+    padding: 18px var(--space-1) 40px;
+    background: var(--color-1);
+    overflow-y: auto;
+  }
+  #header #menu[hidden] { display: none; }
+  #header #menu .mn-top { display: flex; justify-content: flex-end; }
+  #header #menu .mn-list { display: grid; align-content: center; gap: 6px; }
+  #header #menu .mn-list a { position: relative; display: inline-block; font-size: clamp(32px, 9vw, 48px); font-weight: 300; line-height: 1.25; letter-spacing: -0.01em; }
+  #header #menu .mn-list a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: 0 50%; transition: transform .6s cubic-bezier(.2, .7, .1, 1); }
+  @media (hover: hover) { #header #menu .mn-list a:hover::after { transform: scaleX(1); } }
+  #header #menu .mn-foot { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+}

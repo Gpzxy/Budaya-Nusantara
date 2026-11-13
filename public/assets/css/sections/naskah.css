@@ -1,0 +1,40 @@
+/* ============================================================
+   SECTION: NASKAH
+   Foto naskah (sticky di kanan) + penjelasan per halaman (scroll di kiri). Markup: includes/sections/naskah.php
+   ============================================================ */
+@layer sections {
+  #naskah .nk-head { display: grid; gap: 28px; max-width: 760px; }
+  #naskah .nk-title span { display: block; }
+  #naskah .nk-title span:nth-child(2) { margin-left: 1.4em; }
+  #naskah .nk-head p { max-width: 46ch; }
+  #naskah .nk-note { max-width: 56ch; color: var(--color-3); border-left: 1px solid var(--color-4); padding-left: 16px; }
+  #naskah .nk-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 104px); margin-top: clamp(40px, 6vw, 96px); }
+  #naskah .nk-step { min-height: 80vh; display: grid; align-content: center; gap: 16px; max-width: 470px; padding-block: 6vh; opacity: .3; transition: opacity .6s ease; }
+  #naskah .nk-step.is-active, html:not([data-js]) #naskah .nk-step { opacity: 1; }
+  #naskah .nk-step + .nk-step { border-top: 1px solid var(--color-4); }
+  #naskah .nk-num { color: var(--color-3); }
+  #naskah .nk-meta { color: var(--color-5); }
+  #naskah .nk-aside { position: sticky; top: 10vh; align-self: start; display: grid; gap: 14px; }
+  #naskah .nk-frame { position: relative; height: 76vh; min-height: 420px; overflow: hidden; background: var(--color-7); border: 1px solid var(--color-4); }
+  #naskah .nk-page { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .7s ease; pointer-events: none; }
+  #naskah .nk-page.is-active { opacity: 1; z-index: 1; pointer-events: auto; }
+  #naskah .nk-page a { display: block; width: 100%; height: 100%; cursor: zoom-in; }
+  #naskah .nk-page img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+  #naskah .nk-cap { display: flex; justify-content: space-between; gap: 16px; color: var(--color-3); }
+  #naskah .nk-counter { color: var(--color-2); }
+  @media (max-width: 900px) {
+    #naskah .nk-body { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    #naskah .nk-aside { order: -1; top: 0; z-index: 2; padding-block: 12px; background: var(--color-1); }
+    #naskah .nk-frame { height: 44vh; min-height: 280px; }
+    #naskah .nk-step { min-height: 60vh; padding-block: 8vh; }
+  }
+}
+
+/* VARIAN: foto di kiri, teks di kanan (dipilih lewat kolom photo_side = 'left' di tabel cultures) */
+@layer sections {
+  @media (min-width: 901px) {
+    #naskah .nk-body--left { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+    #naskah .nk-body--left .nk-aside { order: -1; }
+    #naskah .nk-body--left .nk-step { margin-left: auto; }
+  }
+}

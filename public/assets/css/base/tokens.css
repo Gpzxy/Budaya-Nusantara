@@ -1,0 +1,20 @@
+/* ============================================================
+   TOKEN
+   Warna tema (--color-1..9), font, spasi. Ganti warna di sini.
+   ============================================================ */
+@layer tokens {
+:root {
+  --color-1: #0b0906;
+  --color-2: #dcd8d1;
+  --color-3: #9a948a;
+  --color-4: #2b2620;
+  --color-5: #d0703f;
+  --color-6: #8fb2b8;
+  --color-7: #15120e;
+  --color-8: #091114;
+  --color-9: #1b0d07;
+  --font-1: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
+  --space-1: clamp(20px, 4.4vw, 64px);
+  --space-2: clamp(104px, 14vw, 200px);
+}
+}

@@ -1,0 +1,19 @@
+/* ============================================================
+   LAYOUT UMUM
+   Lebar & padding section (.l-sec).
+   ============================================================ */
+@layer layout {
+  .l-sec {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: clamp(16px, 6vw, 112px);
+    padding: var(--space-2) var(--space-1);
+  }
+  .l-sec > .m-rail { grid-column: 1; grid-row: 1 / span 12; position: sticky; top: 120px; align-self: start; }
+  .l-sec > :not(.m-rail) { grid-column: 2; }
+  @media (max-width: 700px) {
+    .l-sec { grid-template-columns: 14px minmax(0, 1fr); column-gap: 14px; }
+    .l-sec > .m-rail { top: 96px; font-size: 10px; letter-spacing: .22em; }
+  }
+}
